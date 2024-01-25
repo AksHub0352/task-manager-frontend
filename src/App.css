@@ -1,0 +1,64 @@
+/* App.css */
+
+.App {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+form div {
+  flex: 1;
+  margin-right: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+button {
+  background-color: #1b9be5;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  /* display: flex; */
+  /* margin:0 5px; */
+  margin-right: 5px;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #e31313;
+}

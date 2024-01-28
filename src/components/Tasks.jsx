@@ -16,7 +16,7 @@ const Tasks = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/task/get", {
+      const response = await fetch(`${REACT_APP_BACKEND_URL}/task/get`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +57,7 @@ const Tasks = () => {
 
     if (editTask !== null) {
       try {
-        const response = await fetch("http://localhost:3000/task/update", {
+        const response = await fetch(`${REACT_APP_BACKEND_URL}/task/update`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -78,7 +78,7 @@ const Tasks = () => {
       }
     } else {
       try {
-        const response = await fetch("http://localhost:3000/task/create", {
+        const response = await fetch(`${REACT_APP_BACKEND_URL}/task/create`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -111,13 +111,16 @@ const Tasks = () => {
     console.log(id);
 
     try {
-      const response = await fetch(`http://localhost:3000/task/delete/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await fetch(
+        `${REACT_APP_BACKEND_URL}/task/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${localStorage.getItem("token")}`,
+          },
+        }
+      );
 
       if (response.ok) {
         toast.success("Tasks deleted Successfully");

@@ -57,12 +57,13 @@ const Login = () => {
             <div className="">
               <label htmlFor="email">Email:</label>
               <input
-                type="text"
+                type="email"
                 name="email"
                 value={loginData.email}
                 onChange={handleChange}
                 className="outline-none border-2 border-blue-400 focus:ring-2 rounded-md"
                 autoComplete="off"
+                required
               />
             </div>
             <div className="">
@@ -73,6 +74,7 @@ const Login = () => {
                 value={loginData.password}
                 onChange={handleChange}
                 className="outline-none border-2 border-blue-400 focus:ring-2 rounded-md"
+                required
               />
             </div>
             <div className="">

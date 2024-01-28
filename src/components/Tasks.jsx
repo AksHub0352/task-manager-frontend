@@ -16,13 +16,16 @@ const Tasks = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`${REACT_APP_BACKEND_URL}/task/get`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/task/get`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${localStorage.getItem("token")}`,
+          },
+        }
+      );
 
       if (response.ok) {
         const tasksData = await response.json();
@@ -57,14 +60,17 @@ const Tasks = () => {
 
     if (editTask !== null) {
       try {
-        const response = await fetch(`${REACT_APP_BACKEND_URL}/task/update`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `${localStorage.getItem("token")}`,
-          },
-          body: JSON.stringify(newTask),
-        });
+        const response = await fetch(
+          `${process.env.REACT_APP_BACKEND_URL}/task/update`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `${localStorage.getItem("token")}`,
+            },
+            body: JSON.stringify(newTask),
+          }
+        );
 
         if (response.ok) {
           toast.success("Task Updated");
@@ -78,14 +84,17 @@ const Tasks = () => {
       }
     } else {
       try {
-        const response = await fetch(`${REACT_APP_BACKEND_URL}/task/create`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `${localStorage.getItem("token")}`,
-          },
-          body: JSON.stringify(newTask),
-        });
+        const response = await fetch(
+          `${process.env.REACT_APP_BACKEND_URL}/task/create`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `${localStorage.getItem("token")}`,
+            },
+            body: JSON.stringify(newTask),
+          }
+        );
 
         if (response.ok) {
           toast.success("Task Created");
@@ -112,7 +121,7 @@ const Tasks = () => {
 
     try {
       const response = await fetch(
-        `${REACT_APP_BACKEND_URL}/task/delete/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/task/delete/${id}`,
         {
           method: "DELETE",
           headers: {

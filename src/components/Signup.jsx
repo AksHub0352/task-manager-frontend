@@ -23,13 +23,16 @@ const Signup = () => {
     //
 
     try {
-      const response = await fetch(`${REACT_APP_BACKEND_URL}/auth/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(signupData),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/auth/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(signupData),
+        }
+      );
 
       if (response.ok) {
         toast.success("Register Successful, Please Login");
